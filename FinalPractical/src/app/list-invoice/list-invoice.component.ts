@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-invoice.component.css']
 })
 export class ListInvoiceComponent implements OnInit {
-
+//test JSON Data
   invoices=[
     {
       TabName:"All",
@@ -109,7 +109,7 @@ export class ListInvoiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+//start select data into the invoice list
 updateCheckedSet(id: number, checked: boolean): void {
   if (checked) {
     this.setOfCheckedId.add(id);
@@ -137,7 +137,9 @@ updateCheckedSet(id: number, checked: boolean): void {
     this.indeterminate = this.listOfCurrentPageData.some((item: any) => this.setOfCheckedId.has(item.SupplierId)) && !this.checked;
   }
 
+//end select data into the invoice list
 
+//reset value for Search Filter 
   reset(): void {
     this.searchValue = '';
     this.search();

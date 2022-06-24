@@ -8,29 +8,29 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   styleUrls: ['./add-invoice.component.css']
 })
 export class AddInvoiceComponent implements OnInit {
+  
   validateInvoice!: FormGroup;
   CurrencyValue=null;
-  constructor(private fb: FormBuilder, private message: NzMessageService) { }
-
   i = 0;
   editId: string | null = null;
   listOfData:any= [];
 
+  constructor(private fb: FormBuilder, private message: NzMessageService) { }
+
+  
+
+  //set model for edit row
   startEdit(id: string): void {
     this.editId = id;
   }
 
-  stopEdit(): void {
-    debugger
-    this.editId = null;
-   
-  }
-
+//set currency value
   CurrencyValueSet(){
     debugger
     this.CurrencyValue=this.validateInvoice.value.currency;
   }
 
+  //add blank row in table 
   addRow(): void {
     if(this.i==10){
       this.message.error("maximum 10 Row Allowed", {
@@ -52,6 +52,7 @@ export class AddInvoiceComponent implements OnInit {
     
   }
 
+  //delete Row into the table and condition #Atleast 1
   deleteRow(id: string): void {
     debugger
     if(this.i<=1){
@@ -65,6 +66,7 @@ export class AddInvoiceComponent implements OnInit {
     }
   }
 
+//Save invoice
   saveInvoice(){
     console.log(this.listOfData);
   }

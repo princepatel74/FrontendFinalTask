@@ -1,12 +1,13 @@
 <div class="container mt-3">
-    <form nz-form [formGroup]="validateInvoice" (click)="stopEdit()">
+    <form nz-form [formGroup]="validateInvoice">
         <div class="row">
             <div class="col-2">
                 <label>Email</label>
                 <nz-form-item>
                     <nz-form-control [nzErrorTip]="supplieremailError">
                         <nz-input-group>
-                            <input type="email" nz-input class="input-design" formControlName="email"  placeholder="email.."/>
+                            <input type="email" nz-input class="input-design" formControlName="email"
+                                placeholder="email.." />
                         </nz-input-group>
                         <ng-template #supplieremailError let-control>
                             <ng-container *ngIf="control.hasError('required')">
@@ -74,7 +75,8 @@
             <div class="col-2"></div>
             <div class="col-2">
                 <!-- <label>Currency Type</label> -->
-                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Currency" formControlName="currency" (ngModelChange)="CurrencyValueSet()">
+                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select Currency" formControlName="currency"
+                    (ngModelChange)="CurrencyValueSet()">
                     <nz-option nzLabel="Indian Rupee (INR)" nzValue="INR"></nz-option>
                     <nz-option nzLabel="United States Dollar (USD)" nzValue="USD"></nz-option>
                     <nz-option nzLabel="Canadian Dollar (CAD)" nzValue="CAD"></nz-option>
@@ -126,7 +128,8 @@
                         <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.Discount" />
                     </td>
                     <td class="w100">
-                        <nz-select nzShowSearch  [hidden]="editId !== data.id" nzAllowClear nzPlaceHolder="Select Currency" [(ngModel)]="data.Account">
+                        <nz-select nzShowSearch [hidden]="editId !== data.id" nzAllowClear
+                            nzPlaceHolder="Select Currency" [(ngModel)]="data.Account">
                             <nz-option nzLabel="Sales" nzValue="1"></nz-option>
                             <nz-option nzLabel="Capital sales" nzValue="2"></nz-option>
                             <nz-option nzLabel="Other revenue" nzValue="3"></nz-option>
@@ -137,7 +140,8 @@
                             {{ data.Account }}
                         </div>
                     <td class="w100">
-                        <nz-select nzShowSearch [hidden]="editId !== data.id" nzAllowClear nzPlaceHolder="Select Currency" [(ngModel)]="data.TaxRateId">
+                        <nz-select nzShowSearch [hidden]="editId !== data.id" nzAllowClear
+                            nzPlaceHolder="Select Currency" [(ngModel)]="data.TaxRateId">
                             <nz-option nzLabel="10%" nzValue="1"></nz-option>
                             <nz-option nzLabel="20%" nzValue="2"></nz-option>
                             <nz-option nzLabel="30%" nzValue="3"></nz-option>
@@ -145,37 +149,37 @@
                         </nz-select>
                         <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
                             {{ data.TaxRateId }}
-                        </div>   
+                        </div>
                     </td>
                     <td class="w100">
-                            {{ data.TotalAmount }}
+                        {{ data.TotalAmount }}
                     </td>
                     <td class="w10">
-                        <a nz-popconfirm nzPopconfirmTitle="Sure to delete?"
-                            (nzOnConfirm)="deleteRow(data.id)"><i nz-icon nzType="close" nzTheme="outline"></i></a>
+                        <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)"><i
+                                nz-icon nzType="close" nzTheme="outline"></i></a>
                     </td>
                 </tr>
             </tbody>
         </nz-table>
         <button nz-button (click)="addRow()" class="TabcustomButton mt-2" nzType="primary">Add a new line</button>
-        
+
         <div class="row">
-         <div class="col-12 d-flex justify-content-end">
-          <table class="customTable">
-            <tr class="textCenter">
-                <td>Sub Total</td>
-                <td>0.00</td>
-            </tr>
-            <tr class="textCenter">
-                <td>VAT</td>
-                <td>0.00</td>
-            </tr>
-            <tr class="border-top border-bottom textCenter">     
-                <td class="totalCustom">Total</td>
-                <td class="totalCustom">0.00</td>
-            </tr>
-          </table>
-         </div>
+            <div class="col-12 d-flex justify-content-end">
+                <table class="customTable">
+                    <tr class="textCenter">
+                        <td>Sub Total</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr class="textCenter">
+                        <td>VAT</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr class="border-top border-bottom textCenter">
+                        <td class="totalCustom">Total</td>
+                        <td class="totalCustom">0.00</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
@@ -184,5 +188,5 @@
             <div class="col-6 d-flex justify-content-end">
                 <button nz-button class="cancelCustomBtn" routerLink="/listInvoice" nzType="default">Cancel</button>
             </div>
+        </div>
     </div>
-</div>
