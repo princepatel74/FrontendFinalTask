@@ -1,0 +1,84 @@
+.input-design{
+   border-radius:5px!important;
+}
+
+label{
+    font-weight:500!important;
+    font-size: 16px;
+}
+
+nz-select{
+    width: 80% !important;;
+}
+
+.editable-cell {
+    position: relative;
+    padding: 5px 12px;
+    cursor: pointer;
+  }
+
+  .editable-row:hover .editable-cell {
+    border-radius: 4px;
+    padding: 4px 11px;
+  }
+
+  .TabcustomButton{
+    background-color: rgb(247, 247, 247) !important;
+    color:rgb(4, 120, 187)!important;
+    border-radius:5px;
+    height: 35px!important;
+    font-size: 15px !important;
+    font-weight: 500!important;
+}
+
+.saveCustomBtn{
+    background-color:rgb(4, 120, 187)!important;
+    color:rgb(241, 241, 241) !important;
+    border-radius:5px;
+    height: 35px!important;
+    font-size: 15px !important;
+    font-weight: 500!important;
+}
+
+.disable{
+    display:none !important;
+}
+
+.w100P{
+    width: 100% !important;
+}
+
+.display{
+    display:block !important;
+}
+
+.cancelCustomBtn{
+    background-color:rgb(143, 140, 140)!important;
+    color:rgb(255, 255, 255) !important;
+    border-radius:5px;
+    height: 35px!important;
+    font-size: 15px !important;
+    font-weight: 500!important;
+}
+
+  .w100{
+    width:100px!important;
+  }
+
+  .customTable {
+      width: 35% !important;
+      height: 180px !important;
+      font-size:20px!important;
+  }
+
+  .totalCustom{
+    font-size:30px!important;
+    font-weight: 700!important;
+  }
+  .w10{
+    width:10px!important;
+  }
+
+  .textCenter{
+      text-align:right !important;
+  }

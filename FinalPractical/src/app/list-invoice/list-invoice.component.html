@@ -1,0 +1,67 @@
+<div class="container p-3 mt-5">
+    <h4>Invoices</h4>
+    <button nz-button class="customButton" routerLink="/addInvoice">New Invoice</button>
+    <nz-divider></nz-divider>
+
+    <nz-tabset nzType="card" class="border-bottom">
+        
+        <nz-tab *ngFor="let invoice of invoices" [nzTitle]="invoice.TabName +' ('+invoice.Data.length+')'">
+            <div class="row">
+                <div class="col-8">
+                    <button nz-button class="TabcustomButton m-2" [ngClass]="invoice.TabName=='Awaiting Payment'?'disable m-2':''">Awaiting Payment</button>
+                    <button nz-button class="TabcustomButton m-2">Delete</button>
+                    <button nz-button class="TabcustomButton m-2">Print</button>
+                    <button nz-button class="TabcustomButton m-2">Email</button>
+                </div>
+                <div class="col-4 d-flex justify-content-end">
+                    <button nz-button class="labelcustomButton m-2"> {{invoice.Data.length}} item |</button>
+                        <nz-range-picker  [(ngModel)]="searchValue" [nzFormat]="'dd/MM/yy'" class="m-2"></nz-range-picker>
+                        <button nz-button class="TabcustomButton m-2"  (click)="search()">Search</button>
+                    
+                      
+                </div>
+            </div>
+            <nz-table
+            #rowSelectionTable
+            nzShowSizeChanger
+            [nzData]="invoices"
+            class="mt-4"
+            (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+          >
+            <thead>
+              <tr>
+                <th
+                  [(nzChecked)]="checked"
+                  [nzIndeterminate]="indeterminate"
+                  (nzCheckedChange)="onAllChecked($event)"
+                ></th>
+                <th>Number</th>
+                <th>Ref</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Due Date</th>
+                <th [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">Overdue by</th>
+                <th [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">paid</th>
+                <th>Due</th>
+                <th [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">sent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of invoice.Data">
+                <td [nzChecked]="setOfCheckedId.has(data.Number)" (nzCheckedChange)="onItemChecked(data.Number, $event)"></td>
+                <td>{{ data.Number }}</td>
+                <td>{{ data.Ref }}</td>
+                <td>{{ data.To }}</td>
+                <td>{{ data.Date }}</td>
+                <td>{{ data.Duedate }}</td>
+                <td [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">test</td>
+                <td [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">test</td>
+                <td>{{ data.Due }}</td>
+                <td [ngClass]="invoice.TabName!='Awaiting Payment'?'disable m-2':''">sent</td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </nz-tab>
+    
+      </nz-tabset>
+</div>
