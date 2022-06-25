@@ -111,6 +111,7 @@ export class ListInvoiceComponent implements OnInit {
 
 //start select data into the invoice list
 updateCheckedSet(id: number, checked: boolean): void {
+  debugger
   if (checked) {
     this.setOfCheckedId.add(id);
   } else {
@@ -118,13 +119,18 @@ updateCheckedSet(id: number, checked: boolean): void {
   }
 }
   onItemChecked(id: number, checked: boolean): void {
+    debugger
     this.updateCheckedSet(id, checked);
     this.refreshCheckedStatus();
   }
   
-  onAllChecked(value: boolean): void {
-    this.invoices.forEach((item: any) => this.updateCheckedSet(item.Number, value));
-    this.refreshCheckedStatus();
+  onAllChecked(value: boolean,tab:any): void {
+    // debugger
+    // this.invoices.filter(item => item.TabName==tab).forEach((item: any) => {
+    //   this.updateCheckedSet(item.Data.Number, value);
+    //   this.refreshCheckedStatus();
+    // });
+  
   }
   
   onCurrentPageDataChange($event: any): void {
@@ -133,8 +139,9 @@ updateCheckedSet(id: number, checked: boolean): void {
   }
   
   refreshCheckedStatus(): void {
-    this.checked = this.listOfCurrentPageData.every((item: any) => this.setOfCheckedId.has(item.SupplierId));
-    this.indeterminate = this.listOfCurrentPageData.some((item: any) => this.setOfCheckedId.has(item.SupplierId)) && !this.checked;
+    this.checked = this.listOfCurrentPageData.every((item: any) => this.setOfCheckedId.has(item.id));
+    this.indeterminate = this.listOfCurrentPageData.some((item: any) => this.setOfCheckedId.has(item.id)) && !this.checked;
+    console.log(this.setOfCheckedId);
   }
 
 //end select data into the invoice list

@@ -27,7 +27,7 @@
                 <thead>
                     <tr>
                         <th [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
-                            (nzCheckedChange)="onAllChecked($event)"></th>
+                            (nzCheckedChange)="onAllChecked($event,invoice.TabName)"></th>
                         <th>Number</th>
                         <th>Ref</th>
                         <th>Email</th>

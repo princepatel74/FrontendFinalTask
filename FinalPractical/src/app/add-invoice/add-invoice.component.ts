@@ -71,6 +71,13 @@ export class AddInvoiceComponent implements OnInit {
     console.log(this.listOfData);
   }
 
+  //totalAmount
+
+  amountGetTotal(data:any){
+  console.log(data);
+  return (data.Quantity*data.UnitPrice)-(data.Quantity*data.UnitPrice*data.Discount/100);
+  }
+
   ngOnInit(): void {
     this.validateInvoice = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
